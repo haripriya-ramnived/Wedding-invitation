@@ -1,0 +1,410 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Wedding Invitation | Hari Priya & Ram Nived</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@500;600;700;800&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Great+Vibes&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --maroon-abyss: #2A0208;
+      --maroon-deep: #4A0612;
+      --crimson-royal: #7A0C1E;
+      --crimson-silk: #961329;
+      --gold-24k: #D4A13B;
+      --gold-bright: #FBE6A6;
+      --gold-bronze: #8A5D16;
+      --ivory-silk: #FDF9F0;
+      --pearl-white: #FFFDF9;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      background: radial-gradient(circle at 50% 35%, #3d050f 0%, #170104 100%);
+      color: var(--maroon-deep);
+      margin: 0;
+      padding: 0;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .font-cinzel-dec { font-family: 'Cinzel Decorative', serif; }
+    .font-cinzel { font-family: 'Cinzel', serif; }
+    .font-script { font-family: 'Great Vibes', cursive; }
+    .font-sans-ui { font-family: 'Plus Jakarta Sans', sans-serif; }
+
+    /* ======================================================================= */
+    /* KANJEEVARAM SILK & ZARI BROCADE TEXTURES                                */
+    /* ======================================================================= */
+    .kanjeevaram-silk-bg {
+      background-color: #4A0612;
+      background-image:
+        radial-gradient(circle at 50% 42%, rgba(212, 161, 59, 0.22) 0%, transparent 62%),
+        url("data:image/svg+xml,%3Csvg width='48' height='48' viewBox='0 0 48 48' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23FBE6A6' stroke-opacity='0.065' stroke-width='0.8'%3E%3Cpath d='M24 2 L46 24 L24 46 L2 24 Z'/%3E%3Ccircle cx='24' cy='24' r='6'/%3E%3Ccircle cx='24' cy='2' r='1.5' fill='%23FBE6A6' fill-opacity='0.09'/%3E%3Ccircle cx='46' cy='24' r='1.5' fill='%23FBE6A6' fill-opacity='0.09'/%3E%3Ccircle cx='24' cy='46' r='1.5' fill='%23FBE6A6' fill-opacity='0.09'/%3E%3Ccircle cx='2' cy='24' r='1.5' fill='%23FBE6A6' fill-opacity='0.09'/%3E%3C/g%3E%3C/svg%3E"),
+        linear-gradient(165deg, #6b0a1b 0%, #440510 50%, #260207 100%);
+    }
+
+    .ivory-silk-parchment {
+      background-color: var(--ivory-silk);
+      background-image:
+        radial-gradient(circle at 50% 0%, rgba(251, 230, 166, 0.45) 0%, transparent 55%),
+        url("data:image/svg+xml,%3Csvg width='36' height='36' viewBox='0 0 36 36' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18 0 L36 18 L18 36 L0 18 Z' fill='none' stroke='%23C8963E' stroke-opacity='0.055' stroke-width='0.75'/%3E%3C/svg%3E"),
+        linear-gradient(180deg, #FFFDF8 0%, #F8EED8 55%, #F2E2C4 100%);
+    }
+
+    /* ======================================================================= */
+    /* REALISTIC PLEATED VELVET & SILK CURTAINS                                */
+    /* ======================================================================= */
+    .pleated-curtain-left {
+      background: repeating-linear-gradient(
+        90deg,
+        #32030a 0px,
+        #730c1e 11px,
+        #9e172f 18px,
+        #5e0817 27px,
+        #2b0208 36px
+      );
+      box-shadow: inset -14px 0 28px rgba(0, 0, 0, 0.72), 8px 0 22px rgba(0, 0, 0, 0.65);
+      border-right: 2px solid rgba(251, 230, 166, 0.55);
+      transition: transform 1.15s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.9s ease;
+    }
+
+    .pleated-curtain-right {
+      background: repeating-linear-gradient(
+        270deg,
+        #32030a 0px,
+        #730c1e 11px,
+        #9e172f 18px,
+        #5e0817 27px,
+        #2b0208 36px
+      );
+      box-shadow: inset 14px 0 28px rgba(0, 0, 0, 0.72), -8px 0 22px rgba(0, 0, 0, 0.65);
+      border-left: 2px solid rgba(251, 230, 166, 0.55);
+      transition: transform 1.15s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.9s ease;
+    }
+
+    /* Curtain Parting State */
+    .envelope-wrapper.is-opening .pleated-curtain-left {
+      transform: translateX(-86%) scaleX(0.45);
+    }
+    .envelope-wrapper.is-opening .pleated-curtain-right {
+      transform: translateX(86%) scaleX(0.45);
+    }
+    .envelope-wrapper.is-opening .cover-center-content {
+      opacity: 0;
+      transform: scale(0.95) translateY(-12px);
+      transition: all 0.5s ease;
+    }
+    .envelope-wrapper.is-opened {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.65s ease;
+    }
+
+    /* ======================================================================= */
+    /* 24K GOLD FOIL & ZARI BROCADE RIBBON                                     */
+    /* ======================================================================= */
+    .gold-foil-text {
+      background: linear-gradient(135deg, #b88121 0%, #fff0bd 32%, #d9a43b 62%, #fff3c7 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.55));
+    }
+
+    .zari-brocade-band {
+      background:
+        repeating-linear-gradient(45deg, rgba(251, 230, 166, 0.14) 0px, rgba(251, 230, 166, 0.14) 3px, transparent 3px, transparent 9px),
+        linear-gradient(180deg, #3b040d 0%, #6e0c1d 22%, #520714 50%, #6e0c1d 78%, #34030b 100%);
+      border-top: 1.5px solid #FBE6A6;
+      border-bottom: 1.5px solid #FBE6A6;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 250, 224, 0.35);
+    }
+
+    /* ======================================================================= */
+    /* LUSTROUS 3D IVORY PEARL STRINGS                                         */
+    /* ======================================================================= */
+    .pearl-strand {
+      height: 10px;
+      width: 100%;
+      background-image: radial-gradient(circle at 35% 30%, #ffffff 0%, #fdf6e7 38%, #dec79b 75%, #8f6b2c 100%);
+      background-size: 10px 10px;
+      background-repeat: repeat-x;
+      filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.45));
+    }
+
+    .pearl-strand-sm {
+      height: 7px;
+      width: 100%;
+      background-image: radial-gradient(circle at 35% 30%, #ffffff 0%, #fcf4e3 40%, #d8be8e 78%, #8c6625 100%);
+      background-size: 7px 7px;
+      background-repeat: repeat-x;
+    }
+
+    /* Ornate Gold & Pearl Lotus Clasp CTA */
+    .pearl-gold-clasp {
+      background: linear-gradient(135deg, #9a6818 0%, #fae6a8 26%, #cc9635 52%, #fff0c2 80%, #8e5d12 100%);
+      box-shadow:
+        0 10px 28px rgba(0, 0, 0, 0.75),
+        inset 0 1.5px 2px rgba(255, 253, 240, 0.95),
+        inset 0 -2px 4px rgba(58, 32, 3, 0.8),
+        0 0 0 3px #FFFDF8,
+        0 0 0 5.5px rgba(212, 161, 59, 0.65);
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+    }
+    .pearl-gold-clasp:hover {
+      transform: translateY(-2px) scale(1.03);
+    }
+
+    @keyframes pearlGlow {
+      0%, 100% { box-shadow: 0 10px 28px rgba(0,0,0,0.75), 0 0 0 3px #FFFDF8, 0 0 0 6px rgba(251,230,166,0.45); }
+      50% { box-shadow: 0 10px 28px rgba(0,0,0,0.75), 0 0 0 3px #FFFDF8, 0 0 0 13px rgba(251,230,166,0); }
+    }
+    .clasp-pulse {
+      animation: pearlGlow 2.4s infinite;
+    }
+
+    /* ======================================================================= */
+    /* INNER BOOKLET PAGE TRANSITIONS                                          */
+    /* ======================================================================= */
+    .invite-page {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(42px) scale(0.975);
+      transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+      overflow-y: auto;
+      scrollbar-width: none;
+    }
+    .invite-page::-webkit-scrollbar { display: none; }
+
+    .invite-page.active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0) scale(1);
+      z-index: 20;
+    }
+    .invite-page.prev {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-42px) scale(0.975);
+      z-index: 10;
+    }
+
+    /* Royal Zari Double Border Frame */
+    .royal-zari-frame {
+      border: 1.5px solid rgba(200, 150, 62, 0.8);
+      box-shadow:
+        inset 0 0 0 3.5px #FFFDF8,
+        inset 0 0 0 5px rgba(122, 12, 30, 0.35),
+        0 10px 30px rgba(42, 2, 8, 0.12);
+    }
+
+    @keyframes floatUp {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+    .animate-float-up { animation: floatUp 1.8s ease-in-out infinite; }
+
+    @keyframes dashFlow {
+      to { stroke-dashoffset: -24; }
+    }
+    .route-path-animated {
+      stroke-dasharray: 8 6;
+      animation: dashFlow 1.2s linear infinite;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Main Mobile-First Luxury Stage -->
+  <main id="app-stage" class="relative w-full h-[100dvh] sm:h-[90dvh] sm:max-h-[840px] sm:w-[425px] sm:rounded-[30px] overflow-hidden shadow-[0_28px_80px_rgba(0,0,0,0.9)] border-2 border-[#D4A13B]/60 select-none">
+
+    <!-- ===================================================================== -->
+    <!-- OPENING COVER: ROYAL VELVET CURTAINS & PEARL-SEALED SILK ENVELOPE     -->
+    <!-- ===================================================================== -->
+    <section id="envelope-cover" class="envelope-wrapper absolute inset-0 z-40 flex flex-col justify-between kanjeevaram-silk-bg text-[#FBE6A6] overflow-hidden">
+
+      <!-- Left & Right Draped Silky Curtains (Part smoothly on Open) -->
+      <div class="pleated-curtain-left absolute top-0 bottom-0 left-0 w-[23%] z-20 pointer-events-none"></div>
+      <div class="pleated-curtain-right absolute top-0 bottom-0 right-0 w-[23%] z-20 pointer-events-none"></div>
+
+      <!-- Top Scalloped Pearl Toran & Gold Valance Arch -->
+      <div class="relative z-30 w-full pointer-events-none">
+        <svg viewBox="0 0 420 76" class="w-full h-16 sm:h-[72px] drop-shadow-[0_6px_12px_rgba(0,0,0,0.65)]" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="valanceSilk" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#4A0612"/>
+              <stop offset="100%" stop-color="#871024"/>
+            </linearGradient>
+            <radialGradient id="pearlGrad" cx="35%" cy="30%" r="65%">
+              <stop offset="0%" stop-color="#FFFFFF"/>
+              <stop offset="45%" stop-color="#FCF3E1"/>
+              <stop offset="85%" stop-color="#D4B782"/>
+              <stop offset="100%" stop-color="#8A6322"/>
+            </radialGradient>
+          </defs>
+
+          <!-- Silk Valance Swags -->
+          <path d="M0,0 L420,0 L420,26 Q367,48 315,26 Q262,52 210,26 Q157,52 105,26 Q52,48 0,26 Z" fill="url(#valanceSilk)" stroke="#FBE6A6" stroke-width="1.5"/>
+
+          <!-- Hanging Pearl Festoons / Swags -->
+          <path d="M12,28 Q58,54 105,28" fill="none" stroke="#FBE6A6" stroke-width="1" stroke-dasharray="1 5" stroke-linecap="round"/>
+          <path d="M105,28 Q157,58 210,28" fill="none" stroke="#FBE6A6" stroke-width="1.2" stroke-dasharray="1 5" stroke-linecap="round"/>
+          <path d="M210,28 Q262,58 315,28" fill="none" stroke="#FBE6A6" stroke-width="1.2" stroke-dasharray="1 5" stroke-linecap="round"/>
+          <path d="M315,28 Q362,54 408,28" fill="none" stroke="#FBE6A6" stroke-width="1" stroke-dasharray="1 5" stroke-linecap="round"/>
+
+          <!-- Pearl & Gold Jhumka Drops at Swag Peaks -->
+          <g fill="url(#pearlGrad)">
+            <circle cx="105" cy="34" r="3.2"/><circle cx="105" cy="42" r="3.2"/><circle cx="105" cy="50" r="4"/>
+            <circle cx="210" cy="34" r="3.6"/><circle cx="210" cy="43" r="3.6"/><circle cx="210" cy="52" r="3.6"/><circle cx="210" cy="61" r="4.8"/>
+            <circle cx="315" cy="34" r="3.2"/><circle cx="315" cy="42" r="3.2"/><circle cx="315" cy="50" r="4"/>
+          </g>
+        </svg>
+
+        <p class="text-center font-cinzel text-[9.5px] sm:text-[10.5px] tracking-[0.26em] uppercase text-[#FBE6A6]/95 -mt-1 px-6">
+          Srirasthu &bull; Shubhamasthu &bull; Kalyanamasthu
+        </p>
+      </div>
+
+      <!-- Centerpiece: Full Names in 24k Gold Foil Calligraphy -->
+      <div class="cover-center-content relative z-30 text-center px-8 my-auto">
+        <p class="font-cinzel text-[11px] sm:text-xs tracking-[0.34em] uppercase text-[#FBE6A6]/90 mb-2">
+          Wedding Invitation
+        </p>
+
+        <!-- Sacred Gold Lotus Crest -->
+        <svg viewBox="0 0 140 28" class="w-28 h-6 mx-auto mb-1 text-[#FBE6A6]" fill="none" stroke="currentColor" stroke-width="1.3">
+          <path d="M12,14 L52,14 M88,14 L128,14" stroke-opacity="0.6"/>
+          <path d="M70,4 C65,11 65,18 70,24 C75,18 75,11 70,4 Z" fill="#FBE6A6" fill-opacity="0.28"/>
+          <path d="M70,9 C60,11 56,17 61,22 C65,20 68,15 70,9 Z"/>
+          <path d="M70,9 C80,11 84,17 79,22 C75,20 72,15 70,9 Z"/>
+          <circle cx="52" cy="14" r="2" fill="#FFFDF8"/>
+          <circle cx="88" cy="14" r="2" fill="#FFFDF8"/>
+        </svg>
+
+        <h1 class="font-script text-[50px] sm:text-[58px] leading-[1.06] gold-foil-text py-0.5">
+          Hari Priya
+        </h1>
+
+        <div class="flex items-center justify-center gap-3 my-0.5">
+          <span class="h-[1px] w-12 bg-gradient-to-r from-transparent via-[#FBE6A6]/80 to-[#FBE6A6]"></span>
+          <span class="font-cormorant italic text-2xl text-[#FBE6A6]">&amp;</span>
+          <span class="h-[1px] w-12 bg-gradient-to-l from-transparent via-[#FBE6A6]/80 to-[#FBE6A6]"></span>
+        </div>
+
+        <h1 class="font-script text-[50px] sm:text-[58px] leading-[1.06] gold-foil-text py-0.5">
+          Ram Nived
+        </h1>
+      </div>
+
+      <!-- Woven Zari Brocade Band with Double Pearl Strings & Lotus Clasp -->
+      <div class="cover-center-content relative z-30 w-full my-auto">
+        <!-- Top Pearl Strand -->
+        <div class="pearl-strand"></div>
+
+        <div class="zari-brocade-band w-full py-4 px-4 flex flex-col items-center justify-center">
+          <button id="open-envelope-btn" type="button" aria-label="Open Wedding Invitation" class="pearl-gold-clasp clasp-pulse px-7 py-3 rounded-full text-[#2A0208] font-cinzel font-extrabold text-xs sm:text-[13px] tracking-[0.22em] uppercase flex items-center gap-2.5 cursor-pointer focus:outline-none">
+            <span class="text-[10px]">&#9670;</span>
+            <span>Open Invitation</span>
+            <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2.3" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 19v-8.93a2 2 0 01.89-1.664l7-4.666a2 2 0 012.22 0l7 4.666A2 2 0 0121 10.07V19M3 19a2 2 0 002 2h14a2 2 0 002-2M3 19l6.75-4.5M21 19l-6.75-4.5M3 10l6.75 4.5M21 10l-6.75 4.5m0 0l-1.14.76a2 2 0 01-2.22 0l-1.14-.76"/>
+            </svg>
+          </button>
+          <p class="mt-2.5 text-[11px] font-sans-ui text-[#FFFDF8]/90 tracking-wider">
+            Tap clasp to part the curtains &amp; unseal
+          </p>
+        </div>
+
+        <!-- Bottom Pearl Strand -->
+        <div class="pearl-strand"></div>
+      </div>
+
+      <!-- Bottom Family Crest -->
+      <div class="cover-center-content relative z-30 text-center px-6 pb-5">
+        <p class="text-[10px] font-cinzel uppercase tracking-[0.28em] text-[#FBE6A6]/75">
+          Cordially Invited By
+        </p>
+        <p class="font-cormorant italic text-lg text-[#FFFDF8] font-semibold mt-0.5">
+          The Pemmaraju Family
+        </p>
+      </div>
+    </section>
+
+
+    <!-- ===================================================================== -->
+    <!-- STREAMLINED 2-PAGE INNER SILK BOOKLET                                 -->
+    <!-- ===================================================================== -->
+    <div id="inner-letter-container" class="relative w-full h-full ivory-silk-parchment">
+
+      <!-- Subtle Framed Silk Side Curtains inside Booklet -->
+      <div class="pleated-curtain-left absolute top-0 bottom-0 left-0 w-2.5 z-30 pointer-events-none opacity-90"></div>
+      <div class="pleated-curtain-right absolute top-0 bottom-0 right-0 w-2.5 z-30 pointer-events-none opacity-90"></div>
+
+      <!-- Top Pearl & Mango Leaf Festive Thoranam -->
+      <div class="absolute top-0 left-0 right-0 z-30 pointer-events-none">
+        <div class="pearl-strand-sm"></div>
+        <svg viewBox="0 0 420 34" class="w-full h-7 drop-shadow-xs" preserveAspectRatio="none">
+          <path d="M0,2 Q105,12 210,2 Q315,12 420,2" fill="none" stroke="#8A5D16" stroke-width="1.8"/>
+          <g fill="#265322" stroke="#183815" stroke-width="0.6">
+            <path d="M24,4 C18,15 20,24 24,29 C28,24 30,15 24,4 Z"/>
+            <path d="M68,7 C62,18 64,27 68,32 C72,27 74,18 68,7 Z"/>
+            <path d="M112,8 C106,19 108,28 112,33 C116,28 118,19 112,8 Z"/>
+            <path d="M156,6 C150,17 152,26 156,31 C160,26 162,17 156,6 Z"/>
+            <path d="M210,3 C204,14 206,23 210,28 C214,23 216,14 210,3 Z"/>
+            <path d="M264,6 C258,17 260,26 264,31 C268,26 270,17 264,6 Z"/>
+            <path d="M308,8 C302,19 304,28 308,33 C312,28 314,19 308,8 Z"/>
+            <path d="M352,7 C346,18 348,27 352,32 C356,27 358,18 352,7 Z"/>
+            <path d="M396,4 C390,15 392,24 396,29 C400,24 402,15 396,4 Z"/>
+          </g>
+          <!-- Pearl & Marigold Clusters -->
+          <g fill="#E06D1B" stroke="#9C4306" stroke-width="0.7">
+            <circle cx="46" cy="8" r="4.8"/>
+            <circle cx="90" cy="10" r="4.8"/>
+            <circle cx="134" cy="9" r="4.8"/>
+            <circle cx="183" cy="6" r="4.8"/>
+            <circle cx="237" cy="6" r="4.8"/>
+            <circle cx="286" cy="9" r="4.8"/>
+            <circle cx="330" cy="10" r="4.8"/>
+            <circle cx="374" cy="8" r="4.8"/>
+          </g>
+        </svg>
+      </div>
+
+      <!-- Top Floating Navigation Header (Seal Button & 2-Page Progress Pill) -->
+      <div class="absolute top-8 left-0 right-0 z-30 flex items-center justify-between px-5 pointer-events-none">
+        <button id="close-envelope-btn" type="button" class="pointer-events-auto text-[11px] font-sans-ui font-semibold text-[#6E0D1D] bg-[#FFFDF8]/95 border border-[#C8963E]/60 px-2.5 py-1 rounded-full shadow-xs hover:bg-[#FAF0D7] transition cursor-pointer">
+          ✉ Seal
+        </button>
+
+        <div class="pointer-events-auto flex items-center gap-2 bg-[#FFFDF8]/95 border border-[#C8963E]/55 px-3 py-1 rounded-full shadow-xs">
+          <button type="button" data-goto="0" class="page-dot w-2.5 h-2.5 rounded-full bg-[#7A0C1E] transition-all cursor-pointer" aria-label="Page 1: Invitation & Schedule"></button>
+          <button type="button" data-goto="1" class="page-dot w-2 h-2 rounded-full bg-[#C8963E]/45 transition-all cursor-pointer" aria-label="Page 2: Route Map & Hosts"></button>
+        </div>
+
+        <span id="page-counter-label" class="text-[11px] font-cinzel font-bold text-[#7A0C1E] bg-[#FFFDF8]/90 px-2 py-0.5 rounded-full border border-[#C8963E]/40">
+          1 / 2
+        </span>
+      </div>
+
+
+      <!-- =================================================================== -->
+      <!-- PAGE 1: BLESSINGS, INVITATION, EVENT TIMELINE & LIVE COUNTDOWN      -->
+      <!-- =================================================================== -->
+      <article id="page-0" class="invite-page active pt-16 pb-4 px-4 flex flex-col justify-between">
+        <div class="royal-zari-frame rounded-2xl p-3.5 sm:p-4 flex-1 flex flex-col justify-between bg-[#FFFDF9]/92 relative overflow-hidden">
+
+         
